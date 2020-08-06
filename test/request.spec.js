@@ -6,12 +6,19 @@ const expect = chai.expect
 const request = chai.request
 
 describe('Request Test', () => {
-  it('Should request website', (done) => {
+
+  let res = {}
+
+  beforeEach((done) => {
     request('https://reveweb.com.br')
       .get('/')
-      .end((err, result) => {
-        expect(result).to.have.status(200)
+      .end((err, response) => {
+        res = response
         done()
       })
+  })
+
+  it('Should request website and return status 200', () => {
+    expect(res).to.have.status(200)
   })
 })
