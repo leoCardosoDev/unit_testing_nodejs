@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test_win": "set NODE_ENV=test && mocha '/**/*.spec.js'",
-    "test": "export NODE_ENV=test && mocha './**/*.spec.js'"
+    "test_win": "set NODE_ENV=test && mocha test --compilers js:babel-core/register '/**/*.spec.js'",
+    "test": "export NODE_ENV=test && mocha test --compilers js:babel-core/register './**/*.spec.js'"
   },
   "repository": {
     "type": "git",
