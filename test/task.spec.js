@@ -25,7 +25,7 @@ describe('Task', () => {
       mock.verify()
       mock.restore()
       expect(result.status).to.equal(true)
-      expect(result.data).to.be.object
+      expect(result.data).to.be.an('object')
       done()
     })
 
