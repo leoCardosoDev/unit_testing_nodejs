@@ -15,6 +15,7 @@ describe('calc test', function(){
 */
 
 describe('Sum Test', function(){
+  
   it('Should sum return 4', (done) => {
     let mock = sinon.mock(calcModule)
     mock.expects('sum').yields(null, 4)
@@ -26,4 +27,18 @@ describe('Sum Test', function(){
       done()
     })
   })
+
+  it('Stub func', (done) => {
+    let stub = sinon.stub(calcModule, 'calc')
+
+    stub.returns(5)
+
+    var result = calcModule.calc(4,1)
+    expect(calcModule.sum).to.have.been.calledOne
+
+    expect(result).to.equal(5)
+    stub.restore()
+    done()
+  })
+
 })

@@ -13,6 +13,10 @@ module.exports = {
 
   div: function(n1, n2){
     return n1 / n2
+  },
+
+  calc: (n1, n2) => {
+    return this.sum(n1,n2)
   }
 
 }
