@@ -21,4 +21,13 @@ describe('Request Test', () => {
   it('Should request website and return status 200', () => {
     expect(res).to.have.status(200)
   })
+
+  it('Should have body not null', () => {
+    expect(res.body).to.not.equal(null)
+  })
+
+  afterEach((done) => {
+    res = {}
+    done()
+  })
 })
