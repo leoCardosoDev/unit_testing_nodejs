@@ -1,6 +1,7 @@
 import Todo from './models/task'
 
 export default {
+
   create: (req, res) => {
     let todo = new Todo({
       name: req.body.name
@@ -32,5 +33,21 @@ export default {
         _id: ''
       })
     })
+  },
+  
+  find: (req, res) => {
+    Todo.find({}, (err, result) => {
+      if(!err){
+        return res.status(200).json({
+          status: true,
+          data: result
+        })
+      }
+      return res.status(500).json({
+        status: false,
+        data: []
+      })
+    })
   }
+
 }

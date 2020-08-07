@@ -16,6 +16,7 @@ app.use(bodyParser.json())
 mongoose.connect('mongodb://localhost/unit_test')
 
 app.post('/task', task.create)
+app.get('/task', task.find)
 app.delete('/task/:id', task.remove)
 
 app.listen(3000, () => {

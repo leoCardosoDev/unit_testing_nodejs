@@ -51,4 +51,23 @@ describe('Task', () => {
 
   })
 
+  it('Should return all task', (done) => {
+    let mock = sinon.mock(Todo)
+
+    mock.expects('find').yields(null, {
+      status: true,
+      data: []
+    })
+
+    Todo.find((err, result) => {
+      mock.verify()
+      mock.restore()
+
+      expect(result.status).to.equal(true)
+      done()
+
+    })
+
+  })
+
 })
