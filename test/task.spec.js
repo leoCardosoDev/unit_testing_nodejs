@@ -63,7 +63,7 @@ describe('Task', () => {
       mock.verify()
       mock.restore()
 
-      expect(result.status).to.equal(true)
+      expect(result.status).to.be.true
       expect(result.data).to.be.an('array')
       done()
 
