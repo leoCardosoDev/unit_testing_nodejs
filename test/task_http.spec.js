@@ -50,4 +50,23 @@ describe('Task Request', () => {
       })
   })
 
+  it('Should return error find', (done) => {
+
+    let mock = sinon.mock(Todo)
+    mock.expects('find').yields({
+      status: false
+    }, null)
+
+    Todo.find((err, result) => {
+      mock.verify()
+      mock.restore()
+
+      expect(err.status).to.be.false
+      expect(err.status).to.not.be.true
+
+      done()
+    })
+    
+  })
+
 })
