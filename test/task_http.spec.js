@@ -35,4 +35,19 @@ describe('Task Request', () => {
       })
   })
 
+  it('Should make a request and send name form data', (done) => {
+    request(uri)
+      .post('/task')
+      .send({
+        name: 'Task test'
+      })
+      .end((err, res) => {
+        if (!err) {
+          expect(res.body.status).to.be.true
+          expect(res).to.have.status(201)
+          done()
+        }
+      })
+  })
+
 })

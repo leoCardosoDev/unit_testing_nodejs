@@ -9,7 +9,10 @@ export default {
 
     todo.save((err, data) => {
       if(!err){
-        return res.status(201).json({})
+        return res.status(201).json({
+          status: true,
+          data: data
+        })
       }
       return res.status(500).json({
         status: false,
