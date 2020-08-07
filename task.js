@@ -15,5 +15,22 @@ export default {
         data: {}
       })
     })
+  },
+
+  remove: (req, res) => {
+    Todo.findOneAndRemove({
+      _id: req.params.id
+    }, (err) => {
+      if(!err){
+        return res.status(200).json({
+          status: true,
+          _id: req.params.id
+        })
+      }
+      return res.status(500).json({
+        status: false,
+        _id: ''
+      })
+    })
   }
 }

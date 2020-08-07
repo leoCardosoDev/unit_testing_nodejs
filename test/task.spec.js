@@ -28,6 +28,27 @@ describe('Task', () => {
       expect(result.data).to.be.an('object')
       done()
     })
+  })
+
+  it('Should remove one task by id', (done) => {
+    let mock = sinon.mock(Todo)
+
+    mock.expects('findOneAndRemove').withArgs({
+      _id: '5f2c81e5c633dd24486eb965'
+    }).yields(null, {
+      status: true,
+      _id: '5f2c81e5c633dd24486eb965'
+    })
+    Todo.findOneAndRemove({
+      _id: '5f2c81e5c633dd24486eb965'
+    }, (err, result) => {
+      mock.verify()
+      mock.restore()
+
+      expect(result.status).to.equal(true)
+      done()
+    })
 
   })
+
 })

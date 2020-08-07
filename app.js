@@ -16,6 +16,7 @@ app.use(bodyParser.json())
 mongoose.connect('mongodb://localhost/unit_test')
 
 app.post('/task', task.create)
+app.delete('/task/:id', task.remove)
 
 app.listen(3000, () => {
   console.log('Express started')
